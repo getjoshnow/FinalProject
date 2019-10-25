@@ -1,0 +1,18 @@
+h1,
+h2,
+h3,
+h4 {
+    text-align: center;
+}
+
+.center-container {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+body {
+    background-image: url('/assets/img/MoonTrans.png');
+    background-size: cover;
+    text-shadow: 0.5px 0.5px #f00a0a;
+}

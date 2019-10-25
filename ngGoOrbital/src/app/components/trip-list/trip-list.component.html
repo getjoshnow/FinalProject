@@ -1,0 +1,34 @@
+<div *ngFor="let trip of trips">
+
+
+    <br>
+
+  <div class="card" style="width:800px">
+
+    <div class="card-body">
+        <img src='{{ trip.photoUrl }}' alt="card image" />
+      <h5 class="card-title">{{ trip.title }}</h5>
+      <p class="card-text"><b>Destination:</b> {{ trip.destination }}</p>
+      <p class="card-text"><b>Number of days: </b>{{ trip.length }}</p>
+      <p class="card-text"><b>Departure Date:</b> {{ trip.date }}</p>
+      <p class="card-text"><b>$</b>{{ trip.cost }}</p>
+    </div>
+  </div>
+  <div class="card-body">
+      <hr>
+    <button align="bottom right">View More</button>
+  </div>
+</div>
+
+
+    <!-- <table align="center">
+      <thead class="thead">
+        <tr align="center">
+          <td>{{ trip.title }}</td>
+          <td>{{ trip.destination }}</td>
+          <td><img src='{{ trip.photoUrl }}' alt="space photo"></td>
+          <td>${{ trip.cost }}</td></tr>
+          </thead> -->
+
+
+
