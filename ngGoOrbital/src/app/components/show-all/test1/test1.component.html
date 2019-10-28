@@ -1,0 +1,15 @@
+
+
+<p>
+  <mat-checkbox>Additional Passengers</mat-checkbox>
+</p>
+
+
+<h5>How many passengers?</h5>
+<mat-form-field>
+  <mat-label >Select Travelers</mat-label>
+  <mat-select>
+  <mat-option>1 Adult</mat-option>
+  <mat-option *ngFor="let p of [2,3,4]">{{p}} Adults</mat-option>
+  </mat-select>
+</mat-form-field>

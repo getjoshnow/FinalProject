@@ -1,3 +1,20 @@
 <app-sidenav></app-sidenav>
 <router-outlet></router-outlet>
+<nav class="navbar navbar-expand-sm navbar-dark content-center" style="background-color: #000000;">
+  <span class="navbar-brand mb-0 h1">Go Orbital!</span>
+  <a [routerLink]="['/main']">Main</a> |
+  <a [routerLink]="['/register']">Register</a> |
+  <a [routerLink]="['/search']">Search</a> |
+  | <a [routerLink]="['/main']">Main</a> |
+  <a  [routerLink]="['/login']">Login</a> |
+  <a  [routerLink]="['/logout']">Logout</a> |
+  <a  [routerLink]="['/register']">Register</a> |
+  <a [routerLink]="['/search']">Search</a> |
+  <a [routerLink]="['/details']">Details</a> |
+  <a [routerLink]="['/traveler']">traveler</a> |
+  <a [routerLink]="['/companies']">companies</a> |
+  <a [routerLink]="['/showall']">Show All</a> |
+  <app-logout></app-logout>
+</nav>
+
 <app-footer></app-footer>

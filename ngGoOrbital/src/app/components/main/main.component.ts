@@ -4,7 +4,7 @@ import { CompaniesService } from 'src/app/services/companies.service';
 import { TripService } from './../../services/trip.service';
 import { Companies } from './../../models/companies';
 import { Trip } from './../../models/trip';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NO_ERRORS_SCHEMA } from '@angular/core';
 
 @Component({
   selector: 'app-main',

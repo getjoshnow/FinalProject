@@ -8,11 +8,14 @@ import { TripService } from "src/app/services/trip.service";
 import { NgForm } from "@angular/forms";
 import { User } from 'src/app/models/user';
 
+
 @Component({
   selector: "app-companies",
   templateUrl: "./companies.component.html",
   styleUrls: ["./companies.component.css"]
 })
+
+
 export class CompaniesComponent implements OnInit {
   // FIELDS----------
   selected: Companies = null;
@@ -26,7 +29,7 @@ export class CompaniesComponent implements OnInit {
   eT = null;
 
   start = null;
-  
+
 
   // CONTRRUCTOR-------
   constructor(
@@ -40,10 +43,10 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit() {
     this.start = true;
-    
+
      this.reload();
   }
-    
+
   reload() {
     let user: User;
     const username = this.authServ.getLoggedInUserName();
@@ -53,7 +56,7 @@ export class CompaniesComponent implements OnInit {
       },
       bad => {
         console.error(bad);
-        
+
       }
     );
     this.compServ.getCompanies(user.id).subscribe(
@@ -71,7 +74,7 @@ export class CompaniesComponent implements OnInit {
     this.eC = true;
     this.editCompanies = Object.assign({}, this.selected);
   }
-  
+
   addAnotherTrip(form: NgForm) {
     const addTrip = form.value;
     this.tripServ.addTrip(addTrip).subscribe(
@@ -84,11 +87,12 @@ export class CompaniesComponent implements OnInit {
     this.addTripNew = false;
     this.ngOnInit();
   }
-  setEditTrip(trip: Trip) {
-    this.eT = true;
-    this.companies.editTrip = Object.assign({}, this.selected);
-    this.start = false;
-  }
+
+  // setEditTrip(trip: Trip) {
+  //   this.eT = true;
+  //   this.companies.editTrip = Object.assign({}, this.selected);
+  //   this.start = false;
+  // }
 
   updateTrip(form: NgForm) {
     const updateTrip = form.value;

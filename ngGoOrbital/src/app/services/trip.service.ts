@@ -23,6 +23,23 @@ export class TripService {
   ) {}
   private url = environment.baseUrl + 'api/trip';
 
+  CurrentTrip = {
+    id: 1,
+    title: 'Lower Earth Experience',
+    // tslint:disable-next-line:max-line-length
+    description: 'Sitting atop a 60-foot-tall rocket in a capsule designed for six people, you’ll listen to the countdown and then feel the engine ignite and rumble under you as you climb through the atmosphere. Accelerating to more than Mach 3 and experiencing forces equal to three times Earth’s gravitational force, you will count yourself as one of the few who have reached these speeds and crossed into space. You will then return to Earth as the capsule\'s parachutes deploy for a gentle landing back in the West Texas desert.',
+    destination: 'Lower Earth Orbit',
+    cost: 15000,
+    length: 1,
+    date: null,
+    photoUrl: '/assets/img/GoOrbital2.jpg'
+
+  };
+  CurrentTripCost: number;
+  CurrentPassengers: number;
+
+
+
   getTrips(): Observable<Trip[]> {
     return this.http.get<Trip[]>(this.url).pipe(
       tap(_ => this.log('fetched trips')),

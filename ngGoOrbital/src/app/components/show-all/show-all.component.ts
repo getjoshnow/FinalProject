@@ -1,29 +1,39 @@
 import { Traveler } from 'src/app/models/traveler';
 import { TravelerService } from 'src/app/services/traveler.service';
 import { TripService } from './../../services/trip.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Trip } from 'src/app/models/trip';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
+import { NgModule } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-show-all',
   templateUrl: './show-all.component.html',
   styleUrls: ['./show-all.component.css']
 })
+
 export class ShowAllComponent implements OnInit {
+  trip: {};   // variable
+  trips: any;  // array of variables;
+  travelerLocal: Traveler;
+  disableSelect = new FormControl(false);
 
   currentRate = 8;
   id: any;
+  // this.trip = this.SampleData;
 
   // <a [routerLink]="['/search']">Search</a> |
 
 
-  trip: any;   // variable
-  trips: any;  // array of variables;
-  travelerLocal: Traveler;
+
   constructor(private route: ActivatedRoute,
               private tripService: TripService,
               private travelerService: TravelerService,
@@ -36,9 +46,9 @@ export class ShowAllComponent implements OnInit {
   ngOnInit() {
     this.tripService.getTrip(1);
     this.id = this.route.snapshot.paramMap.get('id');
-    this.getTrip(this.id);
-    // this.travelerLocal = this.travelerService.getTraveler()
     this.getTraveler();
+    this.trip = this.tripService.CurrentTrip;
+    this.tripService.CurrentTripCost = 0;
   }
   getTraveler() {
     let user: User;
@@ -76,13 +86,11 @@ export class ShowAllComponent implements OnInit {
   getTrip(id: number): void {
     this.trip = this.tripService.getTrip(id)
       .subscribe(trip => this.trip = trip);
-    console.log('***********************' + this.trip.values);
   }
 
   // links account id, but
-  purchase(id: any) {
-    console.log('*******************************purchase() id = ' + this.trip);
-    if (confirm('Would You like to Purchase ' + this.trip.name)) {
+  purchase() {
+    if (confirm('Would You like to Purchase ' + this.trip)) {
 
       // get traveler
       this.travelerService.getTraveler(1).subscribe(travelerLocal => this.travelerLocal = travelerLocal);
@@ -95,6 +103,7 @@ export class ShowAllComponent implements OnInit {
 
       console.log('*******************************purchase() id = ' + this.trip);
 
+      this.router.navigateByUrl('../traveler');
     }
     // route to account page
   }
@@ -103,6 +112,5 @@ export class ShowAllComponent implements OnInit {
   /** GET trip by id. Return `undefined` when id not found */
   getTrip1(id: number): void {
     this.tripService.getTrip(1).subscribe(trip => this.trip = trip);
-    console.log(this.trip.value);
   }
 }
