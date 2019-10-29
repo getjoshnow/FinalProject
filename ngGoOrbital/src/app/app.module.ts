@@ -41,7 +41,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Test1Component } from './components/show-all/test1/test1.component';
-import { MatSelectModule, MatCheckboxModule, MatCardModule } from '@angular/material';
+import { MatSelectModule, MatCheckboxModule, MatCardModule, MatDialogModule, MatAccordion, MatExpansionModule } from '@angular/material';
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule }
 from '@angular/material';
 import { Table1Component } from './components/show-all/table1/table1.component';
@@ -77,13 +77,16 @@ import { DisclosuresComponent } from './components/show-all/disclosures/disclosu
 
     MatLineModule,
     MatButtonModule, MatSidenavModule, MatToolbarModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatButtonModule,
     MatSelectModule,
     MatOptionModule,
     MatFormFieldModule,
     MatRippleModule,
+    MatExpansionModule,
     MatCardModule,
+    MatTableModule,
   MatCheckboxModule]
   ,
 

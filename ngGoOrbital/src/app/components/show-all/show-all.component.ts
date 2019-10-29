@@ -21,8 +21,7 @@ import { NgModule } from '@angular/core';
 })
 
 export class ShowAllComponent implements OnInit {
-  trip: {};   // variable
-  trips: any;  // array of variables;
+  trip: any;   // variable
   travelerLocal: Traveler;
   disableSelect = new FormControl(false);
 
@@ -90,7 +89,8 @@ export class ShowAllComponent implements OnInit {
 
   // links account id, but
   purchase() {
-    if (confirm('Would You like to Purchase ' + this.trip)) {
+    let cost = this.trip.cost + this.tripService.CurrentTripCost;
+    if (confirm('Would You like to Purchase ' + this.trip.title + ' for  $' +cost)) {
 
       // get traveler
       this.travelerService.getTraveler(1).subscribe(travelerLocal => this.travelerLocal = travelerLocal);
@@ -100,8 +100,6 @@ export class ShowAllComponent implements OnInit {
 
       // post traveler
       this.travelerService.updateTraveler(this.travelerLocal);
-
-      console.log('*******************************purchase() id = ' + this.trip);
 
       this.router.navigateByUrl('../traveler');
     }

@@ -16,11 +16,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'main' },
-  { path: 'detail', pathMatch: 'full', redirectTo: 'traveler' },
+{ path: '', pathMatch: 'full', redirectTo: 'main' },
+{ path: 'detail', pathMatch: 'full', redirectTo: 'traveler' },
 { path: 'main', component: MainComponent },
 { path: 'companies', component: CompaniesComponent },
-{ path: 'details', component: DetailsComponent },
+{ path: 'show-all', component: DetailsComponent },
 { path: 'login', component: LoginComponent },
 { path: 'logout', component: LogoutComponent },
 { path: 'register', component: RegisterComponent },
@@ -29,9 +29,9 @@ const routes: Routes = [
 { path: 'traveler-list', component: TravelerListComponent },
 { path: 'trip-list', component: TripListComponent },
 { path: 'user-list', component: UserListComponent },
-{ path: 'showall', component: ShowAllComponent },
-{ path: 'sidenav', component: SidenavComponent}
-
+{ path: 'details', component: ShowAllComponent },
+{ path: 'sidenav', component: SidenavComponent},
+{ path: 'detail/id/:id', component: ShowAllComponent}
 ];
 
 @NgModule({

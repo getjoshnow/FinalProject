@@ -37,14 +37,14 @@ export class CompaniesComponent implements OnInit {
     private tripServ: TripService,
     private authServ: AuthService,
     private userServ: UserService
-  ) {}
+  ) { }
 
   // METHODS ----------
 
   ngOnInit() {
     this.start = true;
 
-     this.reload();
+    this.reload();
   }
 
   reload() {
@@ -82,17 +82,13 @@ export class CompaniesComponent implements OnInit {
         this.ngOnInit();
       },
       err => {
-        console.error('error in creating trip');}
+        console.error('error in creating trip');
+      }
     )
     this.addTripNew = false;
     this.ngOnInit();
   }
 
-  // setEditTrip(trip: Trip) {
-  //   this.eT = true;
-  //   this.companies.editTrip = Object.assign({}, this.selected);
-  //   this.start = false;
-  // }
 
   updateTrip(form: NgForm) {
     const updateTrip = form.value;
@@ -101,7 +97,8 @@ export class CompaniesComponent implements OnInit {
         this.ngOnInit();
       },
       err => {
-        console.error('error in update trip');}
+        console.error('error in update trip');
+      }
     )
     this.ngOnInit();
     this.eT = false;
@@ -112,7 +109,8 @@ export class CompaniesComponent implements OnInit {
         this.ngOnInit();
       },
       err => {
-        console.error('error in deleting trip');}
+        console.error('error in deleting trip');
+      }
     )
     this.ngOnInit();
     this.tripselector = false;
@@ -124,11 +122,12 @@ export class CompaniesComponent implements OnInit {
         this.ngOnInit();
       },
       err => {
-        console.error('error in updating company');}
+        console.error('error in updating company');
+      }
     )
     this.ngOnInit();
     this.eC = false;
- }
+  }
 
 
 
@@ -137,5 +136,12 @@ export class CompaniesComponent implements OnInit {
   // addNewVehicle(vehicle: any) { }
 
   // updateVehicle(id: number) { }
+
+  // setEditTrip(trip: Trip) {
+  //   this.eT = true;
+  //   this.companies.editTrip = Object.assign({}, this.selected);
+  //   this.start = false;
+  // }
+
 
 }

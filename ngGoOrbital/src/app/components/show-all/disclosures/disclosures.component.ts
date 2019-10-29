@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { TripService } from 'src/app/services/trip.service';
 
 @Component({
   selector: 'app-disclosures',
   templateUrl: './disclosures.component.html',
   styleUrls: ['./disclosures.component.css']
 })
-export class DisclosuresComponent implements OnInit {
+export class DisclosuresComponent implements OnInit{
 
-  constructor() { }
+  ngOnInit(): void { }
 
-  ngOnInit() {
-  }
+constructor(private tripservice: TripService) { }
+
+     description = this.tripservice.CurrentTrip.description;
+  panelOpenState = false;
 
 }
